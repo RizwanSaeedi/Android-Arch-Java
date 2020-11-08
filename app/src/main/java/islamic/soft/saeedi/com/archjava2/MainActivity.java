@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity
             {
                 Student student = new Student(etName.getText().toString().trim(), etMob.getText().toString().trim(), etAddress.getText().toString().trim());
                 viewModel.insert(student);
-                Snackbar.make(view, "Added", Snackbar.LENGTH_SHORT);
+                Snackbar.make(view, "Added", Snackbar.LENGTH_SHORT).show();;
 
                 etName.setText("");
                 etMob.setText("");
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity
                 Student student = new Student(etName.getText().toString().trim(), etMob.getText().toString().trim(), etAddress.getText().toString().trim());
                 student.setID(selectedStudent.getID());
                 viewModel.insert(student);
-                Snackbar.make(view, "Updated", Snackbar.LENGTH_SHORT);
+                Snackbar.make(view, "Updated", Snackbar.LENGTH_SHORT).show();
             });
 
             alert.setNeutralButton("CANCEL", null);
