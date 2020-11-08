@@ -10,6 +10,7 @@ public class Repo
 {
     private StudentDao mStudentDao;
     private LiveData<List<Student>> mAllStudent;
+
     public Repo(Application application)
     {
         AppDatabase db = AppDatabase.getDatabase(application);
@@ -28,6 +29,14 @@ public class Repo
         AppDatabase.databaseWriteExecutor.execute(() ->
         {
             mStudentDao.insert(student);
+        });
+    }
+
+    public void deleteByID(int id)
+    {
+        AppDatabase.databaseWriteExecutor.execute(() ->
+        {
+            mStudentDao.deleteByID(id);
         });
     }
 }

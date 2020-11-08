@@ -29,4 +29,9 @@ public class StudentViewModel extends AndroidViewModel
     {
         mRepository.insert(student);
     }
+
+    public void deleteByID(int id)
+    {
+        mRepository.deleteByID(id);
+    }
 }

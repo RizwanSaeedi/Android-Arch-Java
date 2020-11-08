@@ -19,14 +19,8 @@ public interface StudentDao
 
     @Query("DELETE FROM student")
     void deleteAll();
-//    // allowing the insert of the same word multiple times by passing a
-//    // conflict resolution strategy
-//    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    void insert(Student student);
-//
-//    @Query("DELETE FROM student")
-//    void deleteAll();
-//
-//    @Query("SELECT * from student ORDER BY ID ASC")
-//    List<Student> getAll();
+
+    @Query("DELETE FROM student WHERE ID = :id")
+    void deleteByID(int id);
+
 }

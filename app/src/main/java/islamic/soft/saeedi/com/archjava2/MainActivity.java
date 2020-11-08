@@ -69,7 +69,8 @@ public class MainActivity extends AppCompatActivity
             {
                 Student student = new Student(etName.getText().toString().trim(), etMob.getText().toString().trim(), etAddress.getText().toString().trim());
                 viewModel.insert(student);
-                Snackbar.make(view, "Added", Snackbar.LENGTH_SHORT).show();;
+                Snackbar.make(view, "Added", Snackbar.LENGTH_SHORT).show();
+                ;
 
                 etName.setText("");
                 etMob.setText("");
@@ -105,7 +106,13 @@ public class MainActivity extends AppCompatActivity
                 viewModel.insert(student);
                 Snackbar.make(view, "Updated", Snackbar.LENGTH_SHORT).show();
             });
-//happy
+
+            alert.setNegativeButton("DELETE", (dialogInterface, i) ->
+            {
+                viewModel.deleteByID(selectedStudent.getID());
+                Snackbar.make(view, "Deleted", Snackbar.LENGTH_SHORT).show();
+            });
+
             alert.setNeutralButton("CANCEL", null);
             alert.setCancelable(false);
             alert.create();
@@ -130,10 +137,7 @@ public class MainActivity extends AppCompatActivity
             public void afterTextChanged(Editable editable)
             {
                 viewModel.getAllStudents(mEtName.getText().toString()).observe(MainActivity.this, students ->
-                {
-                    loadListView(students);
-                });
-
+                        loadListView(students));
             }
         });
     }
