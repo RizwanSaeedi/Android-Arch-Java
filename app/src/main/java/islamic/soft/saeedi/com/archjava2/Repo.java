@@ -10,16 +10,16 @@ public class Repo
 {
     private StudentDao mStudentDao;
     private LiveData<List<Student>> mAllStudent;
-
     public Repo(Application application)
     {
         AppDatabase db = AppDatabase.getDatabase(application);
         mStudentDao = db.studentDao();
-        mAllStudent = mStudentDao.getAll();
+        mAllStudent = mStudentDao.getAll("");
     }
 
-    public LiveData<List<Student>> getAllStudent()
+    public LiveData<List<Student>> getAllStudent(String input)
     {
+        mAllStudent = mStudentDao.getAll(input);
         return mAllStudent;
     }
 

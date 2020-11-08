@@ -9,15 +9,24 @@ import java.util.List;
 
 public class StudentViewModel extends AndroidViewModel
 {
+    private LiveData<String> searchInput;
     private Repo mRepository;
     private final LiveData<List<Student>> mAllStudents;
-    public StudentViewModel(Application application) {
+
+    public StudentViewModel(Application application)
+    {
         super(application);
         mRepository = new Repo(application);
-        mAllStudents = mRepository.getAllStudent();
+        mAllStudents = mRepository.getAllStudent("");
     }
 
-    LiveData<List<Student>> getAllStudents() { return mAllStudents; }
+    LiveData<List<Student>> getAllStudents(String input)
+    {
+        return mRepository.getAllStudent(input);
+    }
 
-    public void insert(Student student) { mRepository.insert(student); }
+    public void insert(Student student)
+    {
+        mRepository.insert(student);
+    }
 }
