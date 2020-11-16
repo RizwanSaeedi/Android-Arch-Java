@@ -11,7 +11,7 @@
         android:theme="@style/Theme.ArchJava2">
         <activity
             android:name=".MainActivity"
-            android:label="Students">
+            android:label="Arch Java 2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
